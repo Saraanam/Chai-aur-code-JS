@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #414141; color: white;
+        }
+    </style>
+    <h2>BTS Images</h2>
+    <div>
+    <ul id="images">
+        <li><img src="BTS-picture/v.jpeg" width="200px" id="V" alt="v"></li>
+        <li><img src="BTS-picture/jk.jpeg" width="200px" id="JK" alt="JK"></li>
+        <li><img src="BTS-picture/rm.jpeg" width="200px" id="RM" alt="RM"></li>
+        <li><img src="BTS-picture/Jimin.jpeg" width="200px" id="JIMIN" alt="Jimin"></li>
+        <li><a style="color: aliceblue;" href="https://www.google.com/" id="google">Google</a></li>
+    </ul>
+    </div>
+</body>
+<script>
+    //not a very goood approach hence event istene came into picture
+    document.getElementById('V').onclick = function(){
+        alert("Most Handsome man")
+    };
+//events to study - type, timestamp, defaultPrevented, target, toElement, srcElement
+    // clientX , ClientY , screenX, screenY(imp all)
+    //altkey,ctlkey,shiftkey,keyCode
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked Images");
+    },false)
+
+
+ //from inside to outside(bubbling) - pehle V frr images . This is called propogation   
+    document.getElementById('V').addEventListener('click',function(e){
+        console.log("Clicked V");
+        e.stopPropagation()
+    },false)
+    
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Google clicked");
+    },false)
+
+    document.querySelector("#images").addEventListener('click',function(e){
+        console.log(e.target.tagName);
+       
+
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+             let removeIt = e.target.parentNode;
+             removeIt.remove();
+            }
+    },false);
+
+</script>
+</html>

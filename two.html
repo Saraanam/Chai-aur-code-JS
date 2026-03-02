@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Asynch Undestanding</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    setTimeout(function(){
+        console.log("Sara");
+    },2000)
+
+    const sayChampo = function(){
+        console.log("Champo");
+    }
+    setTimeout(sayChampo,4000);
+
+    const chonga = function(){
+        document.querySelector("h1").innerHTML = "Chonga";
+    }
+    setTimeout(chonga,5000);
+
+
+    const changeMe = setTimeout(chonga,2000)
+    const btn = document.querySelector("#stop");
+    btn.addEventListener("click",function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+</script>
+</html>
