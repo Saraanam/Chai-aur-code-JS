@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    function addLang(lang){
+        const li = document.createElement('li');
+        li.innerHTML=`${lang}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLang("Python")
+
+    //better way of adding , prefer this - reduces space
+    function OptimisedAddLang(lang){
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(lang));
+         document.querySelector('.language').appendChild(li)
+    }
+    addLang("goLang")
+    addLang("Ruby")
+
+    //Edit values
+    const Slang = document.querySelector("li:nth-child(2)")
+    const newLi  = document.createElement("li");
+    newLi.innerHTML="Mojo";
+    Slang.replaceWith(newLi);
+     
+    const Flang = document.querySelector("li:nth-child(1)");
+    const newLi2 = document.createElement("li")
+    newLi2.innerHTML="Typescript";
+
+    Flang.replaceWith(newLi2);
+
+// Remove values
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove()
+
+</script>
+</html>
