@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+const userr = {
+    username: "Sara",
+    loginCount: 9,
+    signedIn: true,
+
+getUserDetails: function(){
+    //console.log(`Userrname:${this.username}`);
+    console.log(this);
+}
+}
+
+console.log(userr.username);
+console.log(userr.getUserDetails());
+function user(username,loginCount,isLoggedin){
+    this.username = username;
+    this.loginCount = loginCount;
+    this.isLogggedin = isLoggedin
+}
+
+const userOne = new user('Sara',12,true);
+const userTwo = new user('Tanu',13,false);
+
+console.log(userOne);
+console.log(userTwo);
+
+</script>
+</html>
